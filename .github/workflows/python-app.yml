@@ -21,4 +21,14 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
       - name: Display Python version
-        run: python -c "import sys; print(python-version)"
+        run: python -c "import sys; print(python-version)" >> my-python
+        
+      - name: upload
+        uses: actions/upload-artifact@v3
+        with: 
+            name: my-python
+            path: ${{ github.workspace }}
+        
+        
+        
+  
